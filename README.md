@@ -22,3 +22,12 @@ Run the command:
 
 *dexcmd --list-databases*
 
+The output for the command should like this.
+
+[logo]: https://github.com/elastacloud/dexcmdline/blob/master/docs/output.png "View of ADX databases"
+
+For information on creating a App Registration:
+
+[Creating a service (app registration)](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+
+
