@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KustoIngest": {
+      "commandName": "Project",
+      "commandLineArgs": "--list-databases"
+    }
+  }
+}
