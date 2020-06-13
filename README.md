@@ -24,7 +24,7 @@ Run the command:
 
 The output for the command should like this.
 
-[logo]: https://github.com/elastacloud/dexcmdline/blob/master/docs/output.png "View of ADX databases"
+![logo] (https://github.com/elastacloud/dexcmdline/blob/master/docs/output.png "View of ADX databases") 
 
 For information on creating a App Registration:
 
