@@ -3,6 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>dexcmd</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Richard Conway (@azurecoder)</Authors>
+    <Company>Elastacloud</Company>
+    <PackageDescription>Azure Data Explorer Command Line utility</PackageDescription>
+    <RepositoryUrl>https://github.com/elastacloud/dexcmdline</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

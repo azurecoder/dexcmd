@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using CommandLine;
 
-namespace KustoIngest
+namespace dexcmd
 {
    class Program
    {
@@ -16,6 +16,15 @@ namespace KustoIngest
             {
                var functions = new KustoFunctions(kustoArgs);
                await functions.ListDatabases();
+            }
+            else if (opt.ListTables)
+            {
+               if (String.IsNullOrEmpty(opt.DatabaseName))
+               {
+                  throw new ApplicationException("Database name should be supplied to list all tables");
+               }
+               var functions = new KustoFunctions(kustoArgs);
+               await functions.ListTables(opt.DatabaseName);
             }
             else
             {

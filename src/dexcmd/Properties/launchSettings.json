@@ -2,7 +2,7 @@
   "profiles": {
     "KustoIngest": {
       "commandName": "Project",
-      "commandLineArgs": "--list-databases"
+      "commandLineArgs": "--list-tables --databaseName master"
     }
   }
 }

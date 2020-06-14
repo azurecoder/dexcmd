@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 
-namespace KustoIngest
+namespace dexcmd.Model
 {
    public class KustoDatastats
    {

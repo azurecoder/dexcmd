@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using CommandLine;
+﻿using CommandLine;
 using Microsoft.Extensions.Configuration;
 
-namespace KustoIngest
+namespace dexcmd
 {
    public class Options
    {
@@ -15,6 +13,10 @@ namespace KustoIngest
       public string SubscriptionId { get; set; }
       [Option("list-databases", Required = false, HelpText = "Gets a list of databases")]
       public bool ListDatabases { get; set; }
+      [Option("list-tables", Required = false, HelpText = "Gets a list of tables")]
+      public bool ListTables { get; set; }
+      [Option('d', "databaseName", Required = false, HelpText = "Gets a list of tables")]
+      public string DatabaseName { get; set; }
 
       internal static Options GetConfigArguments(Options options)
       {
