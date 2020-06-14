@@ -31,6 +31,6 @@ For information on creating a App Registration:
 [Creating a service (app registration)](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
 
 Release notes:
-1.0.1 - Added --list-tables --databaseName {database name} - which return all of the tables, their sizes and all of the people with access to the table
+1.0.1 - Added *dexcmd --list-tables --databaseName {database name}* - which return all of the tables, their sizes and all of the people with access to the table
 
 
