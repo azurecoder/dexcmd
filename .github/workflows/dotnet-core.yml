@@ -24,4 +24,6 @@ jobs:
     - name: Pack
       run: dotnet pack src/dexcmd/ --output nupkg
     - name: Publish
-      run: dotnet nuget push nupkg/*.nupkg --api-key ${{secrets.NUGET_APIKEY2020}} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nupkg/*.nupkg --api-key ${{secrets.NUGET_APIKEY2020}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+
