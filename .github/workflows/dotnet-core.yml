@@ -22,6 +22,6 @@ jobs:
     - name: Build
       run: dotnet build src/dexcmd/ --configuration Release --no-restore
     - name: Pack
-      run: dotnet pack src/dexcmd/
+      run: dotnet pack src/dexcmd/ --output nupkg
     - name: Publish
-      run: dotnet nuget push src/dexcmd/nupkg/*.nupkg --api-key ${{secrets.NUGET_APIKEY2020}} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nupkg/*.nupkg --api-key ${{secrets.NUGET_APIKEY2020}} --source https://api.nuget.org/v3/index.json
