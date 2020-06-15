@@ -1,4 +1,5 @@
 # dexcmd
+![.NET Core](https://github.com/elastacloud/dexcmdline/workflows/.NET%20Core/badge.svg)
 A command line tool to help with Azure Data Explorer. 
 
 dexcmd is designed to be a lightweight view into a data explorer cluster without using the Azure portal. It currently only contains a single command line switch which can list Azure Data Explorer databases. We're going to develop this as a swiss army knife for ADX databases. As we're currently working a lot with ADX please feel free to add any requests to the issues list or contribute any functions.
