@@ -6,6 +6,7 @@ namespace dexcmd
    public class Options
    {
       public string ClientId { get; set; }
+      public string InteractiveClientId { get; set; }
       public string ClientSecret { get; set; }
       public string TenantId { get; set; }
       public string KustoClusterName { get; set; }
@@ -29,6 +30,7 @@ namespace dexcmd
          options.SubscriptionId = config["subscription_id"];
          options.TenantId = config["tenant_id"];
          options.KustoClusterName = config["cluster_name"];
+         options.InteractiveClientId = config["interactive_application_id"];
          return options;
       }
    }

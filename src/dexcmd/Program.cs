@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CommandLine;
+using Microsoft.IdentityModel.Clients.ActiveDirectory.Extensibility;
 
 namespace dexcmd
 {
