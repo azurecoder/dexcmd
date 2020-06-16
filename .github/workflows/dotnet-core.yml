@@ -1,0 +1,29 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      run: dotnet restore src/dexcmd/
+    - name: Build
+      run: dotnet build src/dexcmd/ --configuration Release --no-restore
+    - name: Pack
+      run: dotnet pack src/dexcmd/ --output nupkg
+    - name: Publish
+      run: dotnet nuget push nupkg/*.nupkg --api-key ${{secrets.NUGET_APIKEY2020}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+
