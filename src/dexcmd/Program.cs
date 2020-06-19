@@ -13,9 +13,10 @@ namespace dexcmd
             .WithParsedAsync<Options>(async (opt) =>
             {
             var kustoArgs = Options.GetConfigArguments(opt);
+            var functions = new KustoFunctions(kustoArgs);
+
             if (opt.ListDatabases)
             {
-               var functions = new KustoFunctions(kustoArgs);
                await functions.ListDatabases();
             }
             else if (opt.ListTables)
@@ -24,8 +25,7 @@ namespace dexcmd
                {
                   throw new ApplicationException("Database name should be supplied to list all tables");
                }
-               var functions = new KustoFunctions(kustoArgs);
-               await functions.ListTables(opt.DatabaseName);
+               await functions.ListTables();
             }
             else
             {

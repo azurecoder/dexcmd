@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <None Update="kusto.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
