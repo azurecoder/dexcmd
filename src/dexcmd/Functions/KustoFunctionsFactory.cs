@@ -6,7 +6,7 @@ namespace dexcmd.Functions
    {
       public async Task ProcessCommands(KustoFunctionsState functionsState)
       {
-         IKustoFunction[] functions = {ListDatabases.Create(), ListTables.Create()};
+         IKustoFunction[] functions = {ListDatabases.Create(), ListTables.Create(), AddUser.Create()};
          KustoFunctionsEnum kustoEnum = KustoFunctionsEnum.None;
          if (functionsState._options.ListDatabases) kustoEnum |= KustoFunctionsEnum.ListDatabases;
          if (functionsState._options.ListTables) kustoEnum |= KustoFunctionsEnum.ListTables;

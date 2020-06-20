@@ -12,6 +12,7 @@ namespace dexcmd.Functions
    {
       None = 0,
       ListDatabases = 1,
-      ListTables = 2
+      ListTables = 2,
+      AddUser = 4
    }
 }

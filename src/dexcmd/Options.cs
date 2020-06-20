@@ -16,8 +16,12 @@ namespace dexcmd
       public bool ListDatabases { get; set; }
       [Option("list-tables", Required = false, HelpText = "Gets a list of tables")]
       public bool ListTables { get; set; }
-      [Option('d', "databaseName", Required = false, HelpText = "Gets a list of tables")]
+      [Option('d', "databaseName", Required = false, HelpText = "The name of the database to query")]
       public string DatabaseName { get; set; }
+      [Option('t', "tableName", Required = false, HelpText = "The name of a table to query")]
+      public string TableName { get; set; }
+      [Option('u', "userName", Required = false, HelpText = "Adds user to a particular table")]
+      public string UserName { get; set; }
 
       internal static Options GetConfigArguments(Options options)
       {
