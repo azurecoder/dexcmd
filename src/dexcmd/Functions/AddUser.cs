@@ -20,7 +20,7 @@ namespace dexcmd.Functions
          try
          {
             var databasesQuery = await functionsState.GetDataAdminReader(functionsState._options.DatabaseName, 
-               $".add table {functionsState._options.TableName} admins('aaduser={functionsState._options.UserName}'");
+               $".add table {functionsState._options.TableName} admins('aaduser={functionsState._options.UserName}')", true);
 
             var allTables = databasesQuery.FromDataReader(functionsState._options.DatabaseName);
 
@@ -60,7 +60,7 @@ namespace dexcmd.Functions
          }
       }
 
-      public KustoFunctionsEnum KustoCommandType => KustoFunctionsEnum.ListTables;
+      public KustoFunctionsEnum KustoCommandType => KustoFunctionsEnum.AddUser;
 
       public static IKustoFunction Create()
       {

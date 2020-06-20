@@ -16,6 +16,8 @@ namespace dexcmd
       public bool ListDatabases { get; set; }
       [Option("list-tables", Required = false, HelpText = "Gets a list of tables")]
       public bool ListTables { get; set; }
+      [Option("add-user", Required = false, HelpText = "Gets a list of users per table")]
+      public bool AddUser { get; set; }
       [Option('d', "databaseName", Required = false, HelpText = "The name of the database to query")]
       public string DatabaseName { get; set; }
       [Option('t', "tableName", Required = false, HelpText = "The name of a table to query")]

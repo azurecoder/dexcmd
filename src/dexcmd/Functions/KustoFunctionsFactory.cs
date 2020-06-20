@@ -10,6 +10,7 @@ namespace dexcmd.Functions
          KustoFunctionsEnum kustoEnum = KustoFunctionsEnum.None;
          if (functionsState._options.ListDatabases) kustoEnum |= KustoFunctionsEnum.ListDatabases;
          if (functionsState._options.ListTables) kustoEnum |= KustoFunctionsEnum.ListTables;
+         if (functionsState._options.AddUser) kustoEnum |= KustoFunctionsEnum.AddUser;
          // TODO: Need to ensure that there is error handling within the contained classes for things like database and table names - should be a validate method on the interface
          foreach (var function in functions)
          {

@@ -2,7 +2,7 @@
   "profiles": {
     "KustoIngest": {
       "commandName": "Project",
-      "commandLineArgs": "--list-tables --databaseName soc-master"
+      "commandLineArgs": "--add-user --tableName zscalerProxy --userName richard.conway@bp.com --databaseName soc-master"
     }
   }
 }

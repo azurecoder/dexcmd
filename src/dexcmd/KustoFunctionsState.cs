@@ -68,7 +68,7 @@ namespace dexcmd
          return client;
       }
 
-      internal async Task<IDataReader> GetDataAdminReader(string databaseName, string query)
+      internal async Task<IDataReader> GetDataAdminReader(string databaseName, string query, bool controlQuery = false)
       {
          string resource = $"https://{_options.KustoClusterName}.northeurope.kusto.windows.net";
          KustoConnectionStringBuilder kcsb;
@@ -93,10 +93,17 @@ namespace dexcmd
                InitialCatalog = databaseName,
             };
          }
-         
-         var admin = kClient.KustoClientFactory.CreateCslQueryProvider(kcsb);
-         return await admin.ExecuteQueryAsync(databaseName, query, new ClientRequestProperties());
+
+         if (!controlQuery)
+         {
+            var admin = kClient.KustoClientFactory.CreateCslQueryProvider(kcsb);
+            return await admin.ExecuteQueryAsync(databaseName, query, new ClientRequestProperties());
+         }
+         var adminControl = kClient.KustoClientFactory.CreateCslAdminProvider(kcsb);
+         return await adminControl.ExecuteControlCommandAsync(databaseName, query, new ClientRequestProperties());
       }
+
+      // ExecuteControlcommand
       #endregion
    }
 }
