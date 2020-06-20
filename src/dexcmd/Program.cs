@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CommandLine;
+using dexcmd.Functions;
 using Microsoft.IdentityModel.Clients.ActiveDirectory.Extensibility;
 
 namespace dexcmd
@@ -11,29 +12,14 @@ namespace dexcmd
       {
          var options = await Parser.Default.ParseArguments<Options>(args)
             .WithParsedAsync<Options>(async (opt) =>
-            {
-            var kustoArgs = Options.GetConfigArguments(opt);
-            var functions = new KustoFunctions(kustoArgs);
-
-            if (opt.ListDatabases)
-            {
-               await functions.ListDatabases();
-            }
-            else if (opt.ListTables)
-            {
-               if (String.IsNullOrEmpty(opt.DatabaseName))
                {
-                  throw new ApplicationException("Database name should be supplied to list all tables");
-               }
-               await functions.ListTables();
-            }
-            else
-            {
-               Console.WriteLine("No functions requested ... ");
-            }
-            });
-         Console.WriteLine("Press any key to exit ..");
-         Console.Read();
+                  var kustoArgs = Options.GetConfigArguments(opt);
+                  var functions = new KustoFunctionsState(kustoArgs);
+                  KustoFunctionsFactory factory = new KustoFunctionsFactory();
+                  await factory.ProcessCommands(functions);
+                  Console.WriteLine("Press any key to exit ..");
+                  Console.Read();
+               });
       }
    }
 }

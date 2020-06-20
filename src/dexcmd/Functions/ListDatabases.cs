@@ -13,14 +13,14 @@ namespace dexcmd.Functions
 {
    internal class ListDatabases : IKustoFunction
    {
-      public async Task Execute(KustoFunctions functions)
+      public async Task Execute(KustoFunctionsState functionsState)
       {
          try
          {
-            var client = await functions.GetManagementClient();
+            var client = await functionsState.GetManagementClient();
             var databases =
-               await client.Databases.ListByClusterAsync(resourceGroupName: functions._options.ResourceGroup,
-                  clusterName: $"{functions._options.KustoClusterName}");
+               await client.Databases.ListByClusterAsync(resourceGroupName: functionsState._options.ResourceGroup,
+                  clusterName: $"{functionsState._options.KustoClusterName}");
 
             var headerThickness = new LineThickness(LineWidth.Single, LineWidth.Single);
 
@@ -35,7 +35,7 @@ namespace dexcmd.Functions
                      new Cell("Cache Size (GB)") { Stroke = headerThickness },
                      databases.Select(item =>
                      {
-                        var databasesQuery = functions.GetDataAdminReader(item.Name.Split('/')[1], ".show database datastats").Result;
+                        var databasesQuery = functionsState.GetDataAdminReader(item.Name.Split('/')[1], ".show database datastats").Result;
                         var dataStats = new KustoDatastats(databasesQuery);
                         return new[]
                         {
@@ -54,6 +54,13 @@ namespace dexcmd.Functions
          {
             Console.WriteLine(ex);
          }
+      }
+
+      public KustoFunctionsEnum KustoCommandType => KustoFunctionsEnum.ListDatabases;
+
+      public static IKustoFunction Create()
+      {
+         return new ListDatabases();
       }
    }
 }

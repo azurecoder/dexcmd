@@ -13,15 +13,15 @@ using static System.ConsoleColor;
 
 namespace dexcmd.Functions
 {
-   internal class ListTables :IKustoFunction
+   internal class ListTables : IKustoFunction
    {
-      public async Task Execute(KustoFunctions functions)
+      public async Task Execute(KustoFunctionsState functionsState)
       {
          try
          {
             List<KustoTableDetail> tableDetails = new List<KustoTableDetail>();
-            var databasesQuery = await functions.GetDataAdminReader(functions._options.DatabaseName, ".show tables details");
-            var allTables = databasesQuery.FromDataReader(functions._options.DatabaseName);
+            var databasesQuery = await functionsState.GetDataAdminReader(functionsState._options.DatabaseName, ".show tables details");
+            var allTables = databasesQuery.FromDataReader(functionsState._options.DatabaseName);
 
             foreach (DataRow row in allTables.Tables[0].Rows)
             {
@@ -64,6 +64,13 @@ namespace dexcmd.Functions
          {
             Console.WriteLine(ex);
          }
+      }
+
+      public KustoFunctionsEnum KustoCommandType => KustoFunctionsEnum.ListTables;
+
+      public static IKustoFunction Create()
+      {
+         return new ListTables();
       }
    }
 }

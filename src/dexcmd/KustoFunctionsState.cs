@@ -22,37 +22,15 @@ using ClientCredential = Microsoft.IdentityModel.Clients.ActiveDirectory.ClientC
 
 namespace dexcmd
 {
-   public class KustoFunctions
+   public class KustoFunctionsState
    {
       internal readonly Options _options;
       public const string AUTHORITY = "https://login.microsoftonline.com/";
 
-      public KustoFunctions(Options options)
+      public KustoFunctionsState(Options options)
       {
          _options = options;
       }
-
-      #region List Databases 
-      /// <summary>
-      /// Given an ADX cluster returns a list of databases in that cluster with a row count and on disk compressed volume
-      /// </summary>
-      public async Task ListDatabases()
-      {
-         var db = new ListDatabases();
-         await db.Execute(this);
-      }
-
-      #endregion
-
-      #region List Tables 
-
-      public async Task ListTables()
-      {
-         var tables = new ListTables();
-         await tables.Execute(this);
-      }
-
-      #endregion
 
       #region Helpers
 
