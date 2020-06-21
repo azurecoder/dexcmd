@@ -33,10 +33,8 @@ For information on creating a App Registration:
 
 Key features 
 
-| Feature           |      Command      |  Link                         |
-|-------------------|:-----------------:|------------------------------:|
-| List Database     |  --list-databases | ![ADX](docs/ListDatabases.md) |
-| List Tables       |  --list-tables    | ![ADX](docs/ListTables.md)    |
-| Add User          | --add-user        | ![ADX](docs/AddUser.md)       |
-
-
+| Feature           |      Command      |  Link                                   |
+|-------------------|:-----------------:|----------------------------------------:|
+| List Database     |  --list-databases | [List Databases](docs/ListDatabases.md) |
+| List Tables       |  --list-tables    | [List Tables](docs/ListTables.md)       |
+| Add User          | --add-user        | [Add Users](docs/AddUser.md)            |
